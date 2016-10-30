@@ -1,0 +1,21 @@
+Scenario:
+	- Get to know your nameless neighbourhood through shared dinners
+	- App proposes having dinner with users nearby with a recipe based on the groups fridge content
+
+
+Connectivity challenge:
+	- Good looking recipes independent from connection type
+	Context: Network connection
+	Adaptation: Scaling down images on the server, caching them locally 
+
+Offline Challenge:
+	- Keep recipes and dinner information while offline
+	- Add food while offline
+	Context: Network connection
+	Adaptaion: Cache basic information, synchronize when going online 
+	
+Energy Challenge:
+	- Keep invitations up to date
+	- Know the rough location
+	Context: Energy level 
+	- Push notifications to keep server requests on a minimum
