@@ -35,21 +35,6 @@
 
 }
 \section{App Development}
-\subsection{Technologies}
-\frame{\frametitle{Technologies}
-\begin{itemize}
-\item  Mobile Application:
-\begin{itemize}
-  \item Android application (Java)
-  \item Location tracking
-\end{itemize}
-\item Server:
-  \begin{itemize}
-    \item Server Application with RESTful API
-  \end{itemize}
-\end{itemize}
-}
-
 \subsection{Architecture}
 \frame{\frametitle{Architecture}
 \begin{figure}
@@ -59,7 +44,7 @@
 }
 
 \section{Challenges}
-\frame{\frametitle{Challenges}
+\frame{\frametitle{Challenges \& Adaptation Concepts}
 
 \begin{itemize}
 \item  Connectivity challenge
@@ -78,12 +63,46 @@
 \end{itemize}
 \end{itemize}
 }
+\frame{\frametitle{Ingredient adaptation}
+    \begin{itemize}
+        \item Suggest recipes that match many ingredients
+        \item Example: Six of eleven ingredients needed for the best match
+        \item Server regulary gets matching recipes
+    \end{itemize}
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=0.2\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_overview.png}
+            \hspace{0.2cm}
+            \includegraphics[width=0.2\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_ingredients.png}
+            \hspace{0.5cm}
+            \includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{../screenshots/suggest_recipes_api_servercode.png}
+        \end{center}
+    \end{figure}
+}
+\frame{\frametitle{Location adaptation}
+    \begin{itemize}
+        \item Find groups of people nearby
+        \item Server calculates groups by location
+        \item Technology used: PostgreSQL Database with PostGIS Extension for location features
+        \begin{itemize}
+            \item PostGIS function example used in SQL Query: ST\_DISTANCE(user1.location, user2.location) < 1500
+            \item Returns TRUE if user1 is in a 1.5km range of user2
+        \end{itemize}
+        \item Example: user\_id has X possible group\_members in a range of max\_distance
+    \end{itemize}
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=0.4\textwidth,height=\textheight,keepaspectratio]{../screenshots/group_sql.png}
+        \end{center}
+    \end{figure}
+}
+
 \section{Prefetching}
 \frame{\frametitle{Prefetching}
 \vspace{0.4cm}
 \begin{itemize}
-  \item Triggered by FirebaseNotification from Server
-  \item Loades Group-informations and Pictures
+  \item Push Notification triggered by our Server
+  \item App prefetches Group informations and Recipe Pictures
   \item Data is persisted in internal Storage and in Cache for better User Experience
 \end{itemize}
 \begin{figure}
