@@ -74,7 +74,12 @@
   \frame{\frametitle{Adaptation of Communication}
         \begin{itemize}
           \item ``Adapt the way data is exchanged between distributed components''
-          \item API Calls are cached or persisted, until network is available
+          \item A ConnectivityManager checks if a NetworkConnection is availiable:
+          \begin{itemize}
+            \item If there is one the Call gets executed
+            \item On Error or with no Connection the Calls are persisted
+          \end{itemize}
+        %  \item API Calls are cached or persisted, until network is available
           \item We use com.birbit.android.jobqueue for queueing API Calls
         \end{itemize}
         \begin{figure}
