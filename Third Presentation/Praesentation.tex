@@ -21,138 +21,70 @@
 	\begin{itemize}
 		\item App proposes having dinner with users nearby and a recipe based on the groups fridge content
 	\end{itemize}
-	\begin{figure}
-		\begin{center}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/overview.png}
-			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/notification.png}
-			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_overview.png}
-		\end{center}
-	\end{figure}
-
 }
-\section{Frist Startup and Offline Challenge}
-\frame{\frametitle{Login}
+\section{First Startup and Offline Challenge}
+\frame{\frametitle{Login / Registration}
 	\begin{itemize}
-		\item Login and Jiss
+		\item User enters Name and Location
+		\item \textbf{Offline Challenge:} API-Calls are always cached and sent when server is reachable
 	\end{itemize}
 	\begin{figure}
 		\begin{center}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/overview.png}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/1_enter_name.png}
 			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/notification.png}
-			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_overview.png}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/2_enter_location.png}
 		\end{center}
 	\end{figure}
-}
-\frame{\frametitle{Offline Challenge}
-	\begin{itemize}
-		\item Login and Location get Persisted
-	\end{itemize}
 }
 \section{MainScreen and Ingredience Adaptation}
 \frame{\frametitle{Digital Pantry}
 	\begin{itemize}
-		\item Food and so on
+		\item Products are added to digital personal pantry
+		\item API Feedback is emulated, when server is not reachable
 	\end{itemize}
 	\begin{figure}
 		\begin{center}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/overview.png}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/3_empty_fridge.png}
 			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/notification.png}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/5_add_to_fridge.png}
 			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_overview.png}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/4_full_fridge.png}
 		\end{center}
 	\end{figure}
 }
 
 
 
-\frame{\frametitle{Ingredient adaptation}
+\section{Notification and Prefetching}
+\frame{\frametitle{Notification \& Group View}
 	\begin{itemize}
-		\item Suggest recipes that match many ingredients
-		\item Example: Six of eleven ingredients needed for the best match
-		\item Server regulary gets matching recipes
+		\item Daily notification is sent to users in the same area
+		\item User can accept or deny invitation
+		\item User can vote recipes
+	\end{itemize}
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/6_notification.png}
+			\hspace{1cm}
+			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{screenshots/7_recipe_view.png}
+		\end{center}
+	\end{figure}
+}
+
+\section{Adaptation Concepts}
+\frame{\frametitle{Other Adaptation Concepts}
+	\begin{itemize}
+		\item Location-Context: Find groups of people nearby
+		\item Prefetching: App prefetches group information and recipe pictures after notification
+		\item Ingredients as Context: Suggests recipes, that match a maximum of ingredients
+		\item Data is persisted in internal storage and in cache for better user experience
 	\end{itemize}
 	\begin{figure}
 		\begin{center}
 			\includegraphics[width=0.2\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_overview.png}
-			\hspace{0.2cm}
+			\hspace{1cm}
 			\includegraphics[width=0.2\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_ingredients.png}
-			\hspace{0.5cm}
-			\includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{../screenshots/suggest_recipes_api_servercode.png}
 		\end{center}
-	\end{figure}
-}
-\section{Notification and Prefetching}
-\frame{\frametitle{Notification}
-	\begin{itemize}
-		\item Do you want to eat ? 
-	\end{itemize}
-	\begin{figure}
-		\begin{center}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/overview.png}
-			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/notification.png}
-			\hspace{1cm}
-			\includegraphics[width=0.25\textwidth,height=\textheight,keepaspectratio]{../screenshots/recipe_overview.png}
-		\end{center}
-	\end{figure}
-}
-\frame{\frametitle{Adaptation of Connectivity}
-	\begin{itemize}
-		\item Push notification triggered by our server
-		\item App then prefetches group information and recipe pictures
-		\item Data is persisted in internal storage and in cache for better user experience
-	\end{itemize}
-	\begin{figure}
-		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{../screenshots/prefetching.png}
-	\end{figure}
-}
-
-
-
-\section{Adaptation on User Context}
-\frame{\frametitle{Location adaptation}
-	\begin{itemize}
-		\item Find groups of people nearby
-		\item Server calculates groups by location
-		\item Technology used: PostgreSQL Database with PostGIS Extension for location features
-		      \begin{itemize}
-		      	\item PostGIS function example used in SQL Query: $ST\_DISTANCE(user1.location, user2.location) \textless $1500
-		      	\item Returns TRUE if user1 is in a 1.5km range of user2
-		      \end{itemize}
-		\item Example: user\_id has X possible group\_members in a range of max\_distance
-	\end{itemize}
-	\begin{figure}
-		\begin{center}
-			\includegraphics[width=0.4\textwidth,height=\textheight,keepaspectratio]{../screenshots/group_sql.png}
-		\end{center}
-	\end{figure}
-}
-
-\section{Adaptation on Technical Context}
-\frame{\frametitle{Adaptation of Communication}
-	\begin{itemize}
-		\item ``Adapt the way data is exchanged between distributed components''
-		\item API Calls are cached or persisted, until network is available
-		\item We use com.birbit.android.jobqueue for queueing API Calls
-	\end{itemize}
-	\begin{figure}
-		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{../screenshots/jobqueue_example.png}
-	\end{figure}
-}
-
-\frame{\frametitle{Adaptation of Connectivity}
-	\begin{itemize}
-		\item Push notification triggered by our server
-		\item App then prefetches group information and recipe pictures
-		\item Data is persisted in internal storage and in cache for better user experience
-	\end{itemize}
-	\begin{figure}
-		\includegraphics[width=0.8\textwidth,height=\textheight,keepaspectratio]{../screenshots/prefetching.png}
 	\end{figure}
 }
 
@@ -163,14 +95,6 @@
 		\includegraphics[width=0.9\textwidth,height=\textheight,keepaspectratio]{../diagrams/architecture_2.png}
 	\end{figure}
 }
-\section{Work}
-\frame{\frametitle{Whats next?}
-	\begin{itemize}
-		\item Better integration of the dinner groups into the app
-		\item Image size adaptation depending on the network speed
-		\item Testing with more devices in real environment
-		\item Final Presentation
-	\end{itemize}
-}
+
 
 \end{document}
